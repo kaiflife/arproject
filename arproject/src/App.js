@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import TriangleGraph from "./TriangleGraph";
+import EilerGraph from "./Containers/EilerGraph";
+import TriangleGraph from "./Containers/TriangleGraph";
 
-const rangeFromCamera = '-2.5';
+const rangeFromCamera = -4;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <a-scene>
-          <TriangleGraph rangeFromCamera={rangeFromCamera} />
+          <EilerGraph rangeFromCamera={rangeFromCamera} />
           <a-sky color="#ECECEC"/>
         </a-scene>
       </header>
