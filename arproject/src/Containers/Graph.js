@@ -1,20 +1,14 @@
 import React from "react";
 import getLinesCoordinates from "../helpers/getLineCoordinates";
 
-const EilerGraph = props => {
-    const vertexes = [
-        [-2, 2, props.rangeFromCamera],
-        [2, 2, props.rangeFromCamera],
-        [2, 1, props.rangeFromCamera],
-        [-2, 1, props.rangeFromCamera],
-    ];
+const Graph = ({vertexes}) => {
 
     const formattedCoords = getLinesCoordinates(vertexes);
 
     const planeMaps = formattedCoords.map(item => {
         return (
             <a-plane
-                key={`${item.coordinates[0] + item.coordinates[1]}`}
+                key={`${item.coordinates}${item.angle}`}
                 position={item.coordinates}
                 rotation={`0 0 ${item.angle}`} width={item.width}
                 height="0.01" color="black"
@@ -23,7 +17,7 @@ const EilerGraph = props => {
     })
 
     const vertexMaps = vertexes.map((item) => {
-        return <a-sphere key={`${item[0] + item[1]}`} position={item.join(' ')} radius="0.3" color="red"/>
+        return <a-sphere key={item.join('')} position={item.join(' ')} radius="0.3" color="red"/>
     })
     return (
         <>
@@ -33,4 +27,4 @@ const EilerGraph = props => {
     )
 }
 
-export default EilerGraph;
+export default Graph;

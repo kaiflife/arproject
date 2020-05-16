@@ -19,20 +19,8 @@ const getLinesCoordinates = coords => {
             const y = middleCoords[1];
             const z = middleCoords[2];
             const coordinates = [x,y,z];
-            const counter = firstCoords.slice(0,2).reduce((sum, current, index) => math.add(sum, math.multiply(current, secondCoords[index])), 0);
-            const bottomFirst = math.sqrt(firstCoords.slice(0,2).reduce((sum, current) => math.add(sum, math.pow(current, 2)), 0));
-            const bottomSecond = math.sqrt(secondCoords.slice(0,2).reduce((sum, current) => math.add(sum, math.pow(current, 2)), 0));
-            const delimiter = math.multiply(bottomFirst, bottomSecond.im || bottomSecond);
-            const isOpposite = firstCoords[0] > 0;
-            const isOppositeVertical = firstCoords[1] > 1.5;
-            const isPerpendicular = firstCoords[0] === secondCoords[0];
-            const isParallel = firstCoords[1] === secondCoords[1];
-            const vectorAngle = math.divide(counter, delimiter);
-            const piAngle = math.divide(180, Math.PI);
-            const angle = isParallel ? 0 : isPerpendicular ? 90 : isOppositeVertical ?
-                math.add(math.multiply(math.sin(vectorAngle), piAngle), 1.5):
-                math.add(math.multiply(math.cos(vectorAngle), piAngle), 1.5);
-            anotherCoordinates.push({coordinates: coordinates.join(' '), width, angle: isOpposite ? -angle : angle});
+            const angle = Math.atan2(secondCoords[1] - firstCoords[1], secondCoords[0] - firstCoords[0]) * 180 / Math.PI;
+            anotherCoordinates.push({coordinates: coordinates.join(' '), width, angle});
         })
     });
     return anotherCoordinates;
