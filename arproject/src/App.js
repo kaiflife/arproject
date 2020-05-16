@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import EilerGraph from "./Containers/EilerGraph";
-import TriangleGraph from "./Containers/TriangleGraph";
 
 const rangeFromCamera = -4;
 
