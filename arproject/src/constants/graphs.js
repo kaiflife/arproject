@@ -6,7 +6,17 @@ const colors = [
     'blue',
     'yellow',
     'orange',
+    'deeppink',
+    'deepskyblue',
+    'chartreuse',
+    'darkorange',
 ];
+
+export const getRandomColor = (forFilteredColors = []) => {
+    const filteredColors = !forFilteredColors.length ? colors :
+        colors.filter(color => !forFilteredColors.some(filteredColor => color === filteredColor));
+    return filteredColors[Math.floor(Math.random() * Math.floor(filteredColors.length))];
+}
 
 export const eulerGraph = [
     [-3, 2, zCoordinate],

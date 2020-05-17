@@ -1,4 +1,5 @@
 import {create, all} from 'mathjs';
+import {getRandomColor} from "../constants/graphs";
 
 const config = {
     number: 'BigNumber',
@@ -19,24 +20,44 @@ const calculateCoords = ({firstCoords, secondCoords}) => {
     return {coordinates: coordinates.join(' '), width, angle};
 }
 
-const getLinesCoordinates = coords => {
-    const newCoords = coords.map(item => {
-        return {connections: [], targets: item.targets.slice(), coordinates: item.coordinates.slice(), id: item.id}
+const getLinesCoordsProps = coords => {
+    const newCoordsProps = coords.map((item, index) => {
+        return {
+            connections: [],
+            targets: item.targets.slice(),
+            coordinates: item.coordinates.slice(),
+            id: item.id,
+            color: index === 0 ? getRandomColor() : '',
+        }
     })
     let lineProps = [];
-    newCoords.forEach(firstItem => {
+    newCoordsProps.forEach(firstItem => {
         firstItem.targets.forEach(targetId => {
             if(!firstItem.connections){
                 firstItem.connections = [];
             }
-            const secondItem = newCoords.find(item => item.id === targetId);
+            const secondItem = newCoordsProps.find(item => item.id === targetId);
             if(!secondItem.connections.some(id => id === firstItem.id)){
-                lineProps.push(calculateCoords({firstCoords: firstItem.coordinates, secondCoords: secondItem.coordinates}));
+                lineProps.push(calculateCoords({
+                    firstCoords: firstItem.coordinates,
+                    secondCoords: secondItem.coordinates
+                }));
                 firstItem.connections.push(targetId);
+                secondItem.connections.push(firstItem.id);
             }
         })
     });
-    return lineProps;
+    newCoordsProps.forEach(coordProps => {
+        if(coordProps.color) {
+            return;
+        }
+        const connectedItems = coordProps.connections.map(connectionId => {
+            return newCoordsProps.find(item => item.id === connectionId);
+        });
+        const filteredColors = connectedItems.map(item => item.color);
+        coordProps.color = getRandomColor(filteredColors);
+    })
+    return {newCoordsProps, lineProps};
 }
 
-export default getLinesCoordinates;
+export default getLinesCoordsProps;

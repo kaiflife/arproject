@@ -1,11 +1,11 @@
 import React from "react";
-import getLinesCoordinates from "../helpers/getLineCoordinates";
+import getLinesCoordsProps from "../helpers/getLineCoordinates";
 
 const Graph = ({vertexes}) => {
 
-    const formattedCoords = getLinesCoordinates(vertexes);
+    const formattedProps = getLinesCoordsProps(vertexes);
 
-    const planeMaps = formattedCoords.map(item => {
+    const planeMaps = formattedProps.lineProps.map(item => {
         return (
             <a-plane
                 key={`${item.coordinates}${item.angle}`}
@@ -16,8 +16,15 @@ const Graph = ({vertexes}) => {
         )
     })
 
-    const vertexMaps = vertexes.map(item => {
-        return <a-sphere key={item.coordinates.join('')} position={item.coordinates.join(' ')} radius="0.3" color="red"/>
+    const vertexMaps = formattedProps.newCoordsProps.map(item => {
+        return (
+            <a-sphere
+                key={item.id}
+                position={item.coordinates.join(' ')}
+                radius="0.3"
+                color={item.color}
+            />
+        )
     })
     return (
         <>
