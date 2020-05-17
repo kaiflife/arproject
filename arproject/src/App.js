@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <a-scene>
-          <Graph vertexes={eulerGraph} />
+          <Graph vertexes={regularGraph} />
           <a-sky color="#ECECEC"/>
         </a-scene>
       </header>

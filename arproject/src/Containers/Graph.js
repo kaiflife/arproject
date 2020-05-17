@@ -16,8 +16,8 @@ const Graph = ({vertexes}) => {
         )
     })
 
-    const vertexMaps = vertexes.map((item) => {
-        return <a-sphere key={item.join('')} position={item.join(' ')} radius="0.3" color="red"/>
+    const vertexMaps = vertexes.map(item => {
+        return <a-sphere key={item.coordinates.join('')} position={item.coordinates.join(' ')} radius="0.3" color="red"/>
     })
     return (
         <>

@@ -1,5 +1,13 @@
 import {zCoordinate} from "./arSettings";
 
+const colors = [
+    'green',
+    'red',
+    'blue',
+    'yellow',
+    'orange',
+];
+
 export const eulerGraph = [
     [-3, 2, zCoordinate],
     [3, 2, zCoordinate],
@@ -15,8 +23,24 @@ export const triangleGraph = [
 ];
 
 export const regularGraph = [
-    [-2, 2, zCoordinate],
-    [2, 2, zCoordinate],
-    [2, 1, zCoordinate],
-    [-2, 1, zCoordinate],
+    {
+        id: 0,
+        coordinates: [-2, 2, zCoordinate],
+        targets: [1, 3],
+    },
+    {
+        id: 1,
+        coordinates: [2, 2, zCoordinate],
+        targets: [0, 2],
+    },
+    {
+        id: 2,
+        coordinates: [2, 1, zCoordinate],
+        targets: [0, 1, 3],
+    },
+    {
+        id: 3,
+        coordinates: [-2, 1, zCoordinate],
+        targets: [0, 1, 2],
+    },
 ];
