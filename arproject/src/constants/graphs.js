@@ -5,7 +5,6 @@ const colors = [
     'red',
     'blue',
     'yellow',
-    'orange',
     'deeppink',
     'deepskyblue',
     'chartreuse',
@@ -19,17 +18,49 @@ export const getRandomColor = (forFilteredColors = []) => {
 }
 
 export const eulerGraph = [
-    [-3, 2, zCoordinate],
-    [3, 2, zCoordinate],
-    [0, 4, zCoordinate],
-    [2, 0, zCoordinate],
-    [-2, 0, zCoordinate]
+    {
+        id: 0,
+        coordinates: [-3, 2, zCoordinate],
+        targets: [1,2,3,4]
+    },
+    {
+        id: 1,
+        coordinates: [3, 2, zCoordinate],
+        targets: [0,2,4]
+    },
+    {
+        id: 2,
+        coordinates: [0, 4, zCoordinate],
+        targets: [0,1]
+    },
+    {
+        id: 3,
+        coordinates: [2, 0, zCoordinate],
+        targets: [0,1,4]
+    },
+    {
+        id: 4,
+        coordinates: [-2, 0, zCoordinate],
+        targets: [0]
+    }
 ];
 
 export const triangleGraph = [
-    [-1, 1, zCoordinate],
-    [1, 1, zCoordinate],
-    [0, 2, zCoordinate],
+    {
+        id: 0,
+        coordinates: [-1, 1, zCoordinate],
+        targets: [1]
+    },
+    {
+        id: 1,
+        coordinates: [1, 1, zCoordinate],
+        targets: [],
+    },
+    {
+        id: 2,
+        coordinates: [0, 2, zCoordinate],
+        targets: [0,1]
+    }
 ];
 
 export const regularGraph = [

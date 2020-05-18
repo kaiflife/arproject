@@ -8,8 +8,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <a-scene>
-          <Graph vertexes={regularGraph} />
-          <a-sky color="#ECECEC"/>
+            <Graph vertexes={eulerGraph} />
+            <a-camera camera="active: true" look-controls={false} fov={30} zoom={0.5} />
+            <a-sky color="#ECECEC"/>
         </a-scene>
       </header>
     </div>

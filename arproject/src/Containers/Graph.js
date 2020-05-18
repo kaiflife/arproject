@@ -1,6 +1,8 @@
 import React from "react";
 import getLinesCoordsProps from "../helpers/getLineCoordinates";
 
+
+
 const Graph = ({vertexes}) => {
 
     const formattedProps = getLinesCoordsProps(vertexes);
@@ -26,6 +28,7 @@ const Graph = ({vertexes}) => {
             />
         )
     })
+
     return (
         <>
             {vertexMaps}
