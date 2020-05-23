@@ -1,5 +1,5 @@
 import {create, all} from 'mathjs';
-import {getRandomColor} from "../constants/graphs";
+import {getColor, getRandomColor} from "../constants/graphs";
 
 const config = {
     number: 'BigNumber',
@@ -55,7 +55,7 @@ const getLinesCoordsProps = coords => {
             return newCoordsProps.find(item => item.id === connectionId);
         });
         const filteredColors = connectedItems.map(item => item.color);
-        coordProps.color = getRandomColor(filteredColors);
+        coordProps.color = getColor(filteredColors);
     })
     return {newCoordsProps, lineProps};
 }

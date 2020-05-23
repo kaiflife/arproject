@@ -17,6 +17,12 @@ export const getRandomColor = (forFilteredColors = []) => {
     return filteredColors[Math.floor(Math.random() * Math.floor(filteredColors.length))];
 }
 
+export const getColor = (forFilteredColors = []) => {
+    const filteredColors = !forFilteredColors.length ? colors :
+        colors.filter(color => !forFilteredColors.some(filteredColor => color === filteredColor));
+    return filteredColors[0];
+}
+
 export const eulerGraph = [
     {
         id: 0,
@@ -41,7 +47,7 @@ export const eulerGraph = [
     {
         id: 4,
         coordinates: [-2, 0, zCoordinate],
-        targets: [0]
+        targets: [0,1]
     }
 ];
 
