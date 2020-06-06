@@ -11,5 +11,6 @@
     <orderEntry type="library" name="aframe-ar-nft" level="application" />
     <orderEntry type="library" name="ar-nft" level="application" />
     <orderEntry type="library" name="aframe" level="application" />
+    <orderEntry type="library" name="aframe-master" level="application" />
   </component>
 </module>
