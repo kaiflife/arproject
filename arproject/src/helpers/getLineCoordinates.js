@@ -16,7 +16,7 @@ const calculateCoords = ({firstCoords, secondCoords}) => {
     const y = middleCoords[1];
     const z = middleCoords[2];
     const coordinates = [x,y,z];
-    const angle = Math.atan2(secondCoords[1] - firstCoords[1], secondCoords[0] - firstCoords[0]) * 180 / Math.PI;
+    const angle = Math.atan2(firstCoords[2] - secondCoords[2], secondCoords[0] - firstCoords[0]) * 180 / Math.PI;
     return {coordinates: coordinates.join(' '), width, angle};
 }
 

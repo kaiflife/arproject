@@ -6,14 +6,13 @@ import getLinesCoordsProps from "../helpers/getLineCoordinates";
 const Graph = ({vertexes}) => {
 
     const formattedProps = getLinesCoordsProps(vertexes);
-    console.log(formattedProps);
     const planeMaps = formattedProps.lineProps.map(item => {
         return (
             <a-plane
                 key={`${item.coordinates}${item.angle}`}
                 position={item.coordinates}
-                rotation={`0 0 ${item.angle}`} width={item.width}
-                height="0.01" color="black"
+                rotation={`-45 ${item.angle} 0`} width={item.width}
+                height="0.1" color="gray"
             />
         )
     })
