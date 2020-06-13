@@ -6,7 +6,7 @@ import getLinesCoordsProps from "../helpers/getLineCoordinates";
 const Graph = ({vertexes}) => {
 
     const formattedProps = getLinesCoordsProps(vertexes);
-
+    console.log(formattedProps);
     const planeMaps = formattedProps.lineProps.map(item => {
         return (
             <a-plane

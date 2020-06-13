@@ -54,17 +54,17 @@ export const eulerGraph = [
 export const triangleGraph = [
     {
         id: 0,
-        coordinates: [-1, 1, zCoordinate],
+        coordinates: [-2.5, 1, zCoordinate],
         targets: [1]
     },
     {
         id: 1,
-        coordinates: [1, 1, zCoordinate],
+        coordinates: [-1.5, 1, zCoordinate],
         targets: [],
     },
     {
         id: 2,
-        coordinates: [0, 2, zCoordinate],
+        coordinates: [-0.5, 2, zCoordinate],
         targets: [0,1]
     }
 ];

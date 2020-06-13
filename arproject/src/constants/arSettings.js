@@ -1,1 +1,1 @@
-export const zCoordinate = -6;
+export const zCoordinate = 0;
