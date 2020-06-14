@@ -26,27 +26,27 @@ export const getColor = (forFilteredColors = []) => {
 export const eulerGraph = [
     {
         id: 0,
-        coordinates: [-3, 2, zCoordinate],
+        coordinates: [-1, 0, -0],
         targets: [1,2,3,4]
     },
     {
         id: 1,
-        coordinates: [3, 2, zCoordinate],
+        coordinates: [1, 0, -0],
         targets: [0,2,4]
     },
     {
         id: 2,
-        coordinates: [0, 4, zCoordinate],
+        coordinates: [0, 0, -0.5],
         targets: [0,1]
     },
     {
         id: 3,
-        coordinates: [2, 0, zCoordinate],
+        coordinates: [0.5, 0, 0.5],
         targets: [0,1,4]
     },
     {
         id: 4,
-        coordinates: [-2, 0, zCoordinate],
+        coordinates: [-0.5, 0, 0.5],
         targets: [0,1]
     }
 ];
@@ -54,7 +54,7 @@ export const eulerGraph = [
 export const triangleGraph = [
     {
         id: 0,
-        coordinates: [-1, 0, 1],
+        coordinates: [-0.5, 0, 0.5],
         targets: [1]
     },
     {
@@ -64,7 +64,7 @@ export const triangleGraph = [
     },
     {
         id: 2,
-        coordinates: [1, 0, 1],
+        coordinates: [0.5, 0, 0.5],
         targets: [0,1]
     }
 ];
@@ -72,22 +72,22 @@ export const triangleGraph = [
 export const regularGraph = [
     {
         id: 0,
-        coordinates: [-2, 2, zCoordinate],
+        coordinates: [-1.5, 0, 0.5],
         targets: [1, 3],
     },
     {
         id: 1,
-        coordinates: [2, 2, zCoordinate],
+        coordinates: [1.5, 0, 0.5],
         targets: [0, 2],
     },
     {
         id: 2,
-        coordinates: [2, 1, zCoordinate],
+        coordinates: [1.5, 0, -0.5],
         targets: [0, 1, 3],
     },
     {
         id: 3,
-        coordinates: [-2, 1, zCoordinate],
+        coordinates: [-1.5, 0, -0.5],
         targets: [0, 1, 2],
     },
 ];

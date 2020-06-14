@@ -1,32 +1,50 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import {regularGraph, triangleGraph} from "./constants/graphs";
+import {eulerGraph, regularGraph, triangleGraph} from "./constants/graphs";
 import Graph from "./Containers/Graph";
-import ReactDOMServer from 'react-dom/server';
+import {componentWillAppendToBody} from "react-append-to-body";
 
-const markerProps = [
-  {
-    id: 3,
-    url: './pattern-3.patt',
-    component: <Graph vertexes={triangleGraph}/>
-  },
-  {
-    id: 4,
-    url: './pattern-4.patt',
-    component: <Graph vertexes={regularGraph}/>
-  },
-];
+const EulerGraph = () => {
+  return <Graph vertexes={eulerGraph}/>
+}
 
-function App() {
-  useEffect(() => {
-    markerProps.forEach(item => {
-      const marker = document.querySelector(`#Marker_${item.id}`);
-      console.log(item.component);
-    })
-  }, []);
-  return <div />
+const RegularGraph = () => {
+  return <Graph vertexes={regularGraph}/>
+}
+
+const TriangleGraph = () => {
+  return <Graph vertexes={triangleGraph}/>
+}
+
+const AppendedTriangle = componentWillAppendToBody(TriangleGraph);
+const AppendedEuler = componentWillAppendToBody(EulerGraph);
+const AppendedRegular = componentWillAppendToBody(RegularGraph);
+
+const App = () => {
+  return <div>
+    <AppendedTriangle subtreeContainer='#Marker_3'/>
+    <AppendedRegular subtreeContainer='#Marker_4'/>
+    <AppendedEuler subtreeContainer='#Marker_5'/>
+  </div>
 }
 
 export default App;
 
 
+const markerProps = [
+  {
+    id: 3,
+    url: './pattern-3.patt',
+    component: TriangleGraph
+  },
+  {
+    id: 4,
+    url: './pattern-4.patt',
+    component: RegularGraph
+  },
+  {
+    id: 5,
+    url: './pattern-5.patt',
+    component: EulerGraph,
+  },
+];

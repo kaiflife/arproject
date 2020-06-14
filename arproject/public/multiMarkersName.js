@@ -6,13 +6,13 @@ AFRAME.registerComponent('markers_start',{
         const sceneEl = document.querySelector('a-scene');
 
         //lists of the markers
-        for(let i=3; i<5; i++)
+        for(let i=3; i<6; i++)
         {
             const url = `./pattern-${i}.patt`;
             markersURLArray.push(url);
             markersNameArray.push('Marker_'+i);
         }
-        for(let k=0; k<2; k++)
+        for(let k=0; k<3; k++)
         {
             const markerEl = document.createElement('a-marker');
             markerEl.setAttribute('type','pattern');

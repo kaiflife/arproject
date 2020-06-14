@@ -12,17 +12,20 @@ const Graph = ({vertexes}) => {
                 key={`${item.coordinates}${item.angle}`}
                 position={item.coordinates}
                 rotation={`-45 ${item.angle} 0`} width={item.width}
-                height="0.1" color="gray"
+                height="0.05" color="gray"
             />
         )
     })
 
     const vertexMaps = formattedProps.newCoordsProps.map(item => {
         return (
-            <a-sphere
+            <a-box
                 key={item.id}
                 position={item.coordinates.join(' ')}
-                radius="0.3"
+                depth="0.2"
+                opacity="0.9"
+                width="0.3"
+                height="0.3"
                 color={item.color}
             />
         )
