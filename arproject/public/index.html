@@ -8,8 +8,9 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app"/>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="./aframe.min.js"></script>
+    <script src="./aframe-ar.min.js"></script>
+    <script src="./multiMarkersName.js"></script>
     <!--
     manifest.json provides metadata used when your web app is installed on a
     user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -38,9 +39,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <a-scene arjs>
-      <a-marker-camera id="root" type='pattern' preset="custom" url="./pattern-triangle.patt">
-      </a-marker-camera>
-    </a-scene>
+  <a-scene markers_start arjs>
+    <a-entity id='userCamera' camera>
+      <a-cursor id="root"> </a-cursor>
+    </a-entity>
+  </a-scene>
   </body>
+
 </html>
