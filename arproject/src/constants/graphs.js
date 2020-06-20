@@ -26,18 +26,18 @@ export const getColor = (forFilteredColors = []) => {
 export const eulerGraph = [
     {
         id: 0,
-        coordinates: [-1, 0, -0],
+        coordinates: [-1, 0, 0],
         targets: [1,2,3,4]
     },
     {
         id: 1,
-        coordinates: [1, 0, -0],
+        coordinates: [1, 0, 0],
         targets: [0,2,4]
     },
     {
         id: 2,
         coordinates: [0, 0, -0.5],
-        targets: [0,1]
+        targets: [0,1, 3, 4]
     },
     {
         id: 3,
@@ -54,17 +54,17 @@ export const eulerGraph = [
 export const triangleGraph = [
     {
         id: 0,
-        coordinates: [-0.5, 0, 0.5],
+        coordinates: [-0.5, 0, 0.25],
         targets: [1]
     },
     {
         id: 1,
-        coordinates: [0, 0, 0],
+        coordinates: [0, 0, -0.25],
         targets: [],
     },
     {
         id: 2,
-        coordinates: [0.5, 0, 0.5],
+        coordinates: [0.5, 0, 0.25],
         targets: [0,1]
     }
 ];
@@ -90,4 +90,13 @@ export const regularGraph = [
         coordinates: [-1.5, 0, -0.5],
         targets: [0, 1, 2],
     },
+];
+
+export const sixGraph = [
+    {id: 0, coordinates: [-1, 0,  1], targets: [1, 3, 5]},
+    {id: 1, coordinates: [ 1, 0,  1], targets: [2, 4]},
+    {id: 2, coordinates: [-1, 0,  0], targets: [3, 5]},
+    {id: 3, coordinates: [ 1, 0,  0], targets: [4]},
+    {id: 4, coordinates: [-1, 0, -1], targets: [5]},
+    {id: 5, coordinates: [ 1, 0, -1], targets: []},
 ];

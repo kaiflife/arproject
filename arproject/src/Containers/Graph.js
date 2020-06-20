@@ -1,10 +1,7 @@
 import React from "react";
 import getLinesCoordsProps from "../helpers/getLineCoordinates";
 
-
-
 const Graph = ({vertexes}) => {
-
     const formattedProps = getLinesCoordsProps(vertexes);
     const planeMaps = formattedProps.lineProps.map(item => {
         return (
