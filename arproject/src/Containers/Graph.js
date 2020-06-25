@@ -1,7 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import getLinesCoordsProps from "../helpers/getLineCoordinates";
 
-const Graph = ({vertexes}) => {
+const Graph = ({vertexes, graphName}) => {
+    useEffect(() => {
+        const finishDate = new Date();
+        console.log(
+            graphName, 'Начало алгоритма: ',
+            0,
+            ' Конец алгоритма: ',
+            finishDate.getMilliseconds(), ' миллисекунд'
+        );
+    }, []);
     const formattedProps = getLinesCoordsProps(vertexes);
     const planeMaps = formattedProps.lineProps.map(item => {
         return (

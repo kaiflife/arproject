@@ -1,26 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import {eulerGraph, regularGraph, sixGraph, triangleGraph} from "./constants/graphs";
+import {eulerGraph, regularGraph, sixGraph, triangleGraph, twentyFourGraph} from "./constants/graphs";
 import Graph from "./Containers/Graph";
 import {componentWillAppendToBody} from "react-append-to-body";
 
-const EulerGraph = () => <Graph vertexes={eulerGraph}/>
-const RegularGraph = () => <Graph vertexes={regularGraph}/>
-const TriangleGraph = () => <Graph vertexes={triangleGraph}/>
-const SixGraph = () => <Graph vertexes={sixGraph}/>
+const graphs = [
+  {vertexes: eulerGraph, name: '5 вершин', subtreeContainer: '#Marker_5'},
+  {vertexes: regularGraph, name: '4 вершины', subtreeContainer: '#Marker_4'},
+  {vertexes: sixGraph, name: '6 вершин', subtreeContainer: '#Marker_6'},
+  {vertexes: triangleGraph, name: '3 вершины', subtreeContainer: '#Marker_3'},
+  {vertexes: twentyFourGraph, name: '24 вершины', subtreeContainer: '#Marker_3'}
+];
 
-const AppendedTriangle = componentWillAppendToBody(TriangleGraph);
-const AppendedEuler = componentWillAppendToBody(EulerGraph);
-const AppendedRegular = componentWillAppendToBody(RegularGraph);
-const AppendedSix = componentWillAppendToBody(SixGraph);
+const componentGraphs = graphs.map(item => {
+  const NewComponent =
+      componentWillAppendToBody(() => {
+        return <Graph vertexes={item.vertexes} graphName={item.name} />;
+      });
+  return <NewComponent key={item.name} subtreeContainer={item.subtreeContainer}/>;
+})
 
 const App = () => {
-  return <div>
-    <AppendedTriangle subtreeContainer='#Marker_3'/>
-    <AppendedRegular subtreeContainer='#Marker_4'/>
-    <AppendedEuler subtreeContainer='#Marker_5'/>
-    <AppendedSix subtreeContainer='#Marker_6'/>
-  </div>
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {setIsLoading(true)}, []);
+
+  if(!isLoading) return <><p>Loading</p></>
+  return <div>{componentGraphs}</div>
 }
 
 export default App;
